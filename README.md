@@ -1,5 +1,5 @@
 # Search Port
-[logo](image.png)
+[logo](logo.png)
 
 Search Port is a modern, customizable homepage with quick search options. It allows you to add and manage multiple search engines, making it easy to search the web from a single interface.
 
