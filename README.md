@@ -3,7 +3,7 @@
 
 Search Port is a modern, customizable homepage with quick search options. It allows you to add and manage multiple search engines, making it easy to search the web from a single interface.
 
-## Features!
+## Features
 
 - Add and manage multiple search engines
 - Drag and reposition search boxes
@@ -14,20 +14,24 @@ Search Port is a modern, customizable homepage with quick search options. It all
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/whirlxd/search-port.git
+    git clone https://github.com/whirlxd/searchport.git
     ```
 2. Navigate to the project directory:
     ```sh
-    cd search-port
+    cd searchport
     ```
 3. Load the extension in Chrome:
     - Open Chrome and go to `chrome://extensions/`
     - Enable "Developer mode" in the top right corner
     - Click "Load unpacked" and select the project directory
+4. Load the extension in Firefox:
+    - Open Firefox and go to `about:debugging
+    - Click "Load temporary addon" and select the manifest.json file in the project directory
+
 
 ## Usage
 
-- Open a new tab in Chrome to see the Search Port homepage.
+- Open a new tab in Browser to see the Search Port homepage.
 - Click the "+" button to add a new search engine.
 - Drag and reposition search boxes as needed.
 - Customize search engines by providing a name, search URL, and optional icon URL.
