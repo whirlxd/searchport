@@ -1,7 +1,7 @@
 {
 	"manifest_version": 3,
 	"name": "Search Port",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"description": "A modern, customizable homepage with quick search options",
 	"permissions": ["storage"],
 	"chrome_url_overrides": {

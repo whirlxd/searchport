@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", () => {
 	const addButton = document.querySelector(".add-button");
 	const modal = document.querySelector(".modal");
 	const overlay = document.querySelector(".overlay");
-	const customForm = document.querySelector(".custom-engine-form");
 	const addCustomBtn = document.getElementById("addCustom");
 	const cancelCustomBtn = document.getElementById("cancelCustom");
 
@@ -170,7 +169,17 @@ document.addEventListener("DOMContentLoaded", () => {
 		const contextMenu = document.createElement("div");
 		contextMenu.className = "context-menu";
 		contextMenu.innerHTML = `
-        <div class="context-menu-item">Delete</div>
+        <div class="context-menu-item"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_9_22)">
+<path d="M1.75 3.49999H2.91667M2.91667 3.49999H12.25M2.91667 3.49999V11.6667C2.91667 11.9761 3.03958 12.2728 3.25838 12.4916C3.47717 12.7104 3.77391 12.8333 4.08333 12.8333H9.91667C10.2261 12.8333 10.5228 12.7104 10.7416 12.4916C10.9604 12.2728 11.0833 11.9761 11.0833 11.6667V3.49999M4.66667 3.49999V2.33332C4.66667 2.0239 4.78958 1.72716 5.00838 1.50837C5.22717 1.28957 5.52391 1.16666 5.83333 1.16666H8.16667C8.47609 1.16666 8.77283 1.28957 8.99162 1.50837C9.21042 1.72716 9.33333 2.0239 9.33333 2.33332V3.49999M5.83333 6.41666V9.91666M8.16667 6.41666V9.91666" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_9_22">
+<rect width="14" height="14" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+Delete</div>
     `;
 		document.body.appendChild(contextMenu);
 
