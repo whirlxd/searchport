@@ -13,7 +13,7 @@ Search Port is a modern, customizable homepage with quick search options. It all
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/yourusername/search-port.git
+    git clone https://github.com/whirlxd/search-port.git
     ```
 2. Navigate to the project directory:
     ```sh
