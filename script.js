@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
 	const addCustomBtn = document.getElementById("addCustom");
 	const cancelCustomBtn = document.getElementById("cancelCustom");
 
-	// Preexisting engines TODO: Add more engines
 	const searchEngines = {
 		google: {
 			name: "Google",
@@ -33,6 +32,33 @@ document.addEventListener("DOMContentLoaded", () => {
 			name: "Reddit",
 			url: "https://www.reddit.com/search/?q=%s",
 			icon: "https://www.reddit.com/favicon.ico",
+		},
+
+		amazon: {
+			name: "Amazon",
+			url: "https://www.amazon.com/s?k=%s",
+			icon: "https://www.amazon.com/favicon.ico",
+		},
+		wikipedia: {
+			name: "Wikipedia",
+			url: "https://en.wikipedia.org/wiki/Special:Search?search=%s",
+			icon: "https://www.wikipedia.org/static/favicon/wikipedia.ico",
+		},
+		linkedin: {
+			name: "LinkedIn",
+			url: "https://www.linkedin.com/search/results/all/?keywords=%s",
+			icon: "https://www.linkedin.com/favicon.ico",
+		},
+
+		netflix: {
+			name: "Netflix",
+			url: "https://www.netflix.com/search?q=%s",
+			icon: "https://www.netflix.com/favicon.ico",
+		},
+		facebook: {
+			name: "Facebook",
+			url: "https://www.facebook.com/search/top/?q=%s",
+			icon: "https://www.facebook.com/favicon.ico",
 		},
 	};
 
@@ -131,9 +157,43 @@ document.addEventListener("DOMContentLoaded", () => {
 				}
 			}
 		});
+		searchBox.addEventListener("contextmenu", (e) => {
+			e.preventDefault();
+			showContextMenu(e, searchBox);
+		});
 
 		container.appendChild(searchBox);
+
 		saveSearchBoxPositions();
+	}
+	function showContextMenu(e, searchBox) {
+		const contextMenu = document.createElement("div");
+		contextMenu.className = "context-menu";
+		contextMenu.innerHTML = `
+        <div class="context-menu-item">Delete</div>
+    `;
+		document.body.appendChild(contextMenu);
+
+		contextMenu.style.top = `${e.clientY}px`;
+		contextMenu.style.left = `${e.clientX}px`;
+
+		contextMenu
+			.querySelector(".context-menu-item")
+			.addEventListener("click", () => {
+				container.removeChild(searchBox);
+				saveSearchBoxPositions();
+				document.body.removeChild(contextMenu);
+			});
+
+		document.addEventListener(
+			"click",
+			() => {
+				if (document.body.contains(contextMenu)) {
+					document.body.removeChild(contextMenu);
+				}
+			},
+			{ once: true },
+		);
 	}
 
 	function saveSearchBoxPositions() {

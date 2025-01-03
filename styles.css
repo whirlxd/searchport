@@ -133,6 +133,7 @@ body {
 	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 	display: none;
 	backdrop-filter: blur(10px);
+	overflow-y: auto;
 }
 
 .modal.active {
@@ -279,4 +280,26 @@ body {
 	align-items: center;
 	justify-content: center;
 	gap: 0.5rem;
+}
+.context-menu {
+	position: absolute;
+	background: rgba(47, 53, 59, 0.95);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+	z-index: 1000;
+	padding: 5px 0;
+	width: 150px;
+	border-radius: 8px;
+	backdrop-filter: blur(10px);
+}
+
+.context-menu-item {
+	padding: 8px 12px;
+	cursor: pointer;
+	color: rgba(255, 255, 255, 0.9);
+	transition: background 0.2s ease;
+}
+
+.context-menu-item:hover {
+	background: rgba(255, 0, 0, 0.8);
 }
