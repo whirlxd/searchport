@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	};
 
 	// Load saved search boxes
-	chrome.storage.sync.get(["searchBoxes", "customEngines"], (result) => {
+	browser.storage.sync.get(["searchBoxes", "customEngines"], (result) => {
 		const searchBoxes = result.searchBoxes || [];
 		const customEngines = result.customEngines || {};
 
@@ -204,18 +204,21 @@ Delete</div>
 			{ once: true },
 		);
 	}
-
+	let saveTimeout;
 	function saveSearchBoxPositions() {
-		const searchBoxes = Array.from(
-			document.querySelectorAll(".search-box"),
-		).map((box) => ({
-			engine: searchEngines[box.dataset.engine],
-			position: {
-				x: Number.parseInt(box.style.left),
-				y: Number.parseInt(box.style.top),
-			},
-		}));
-		chrome.storage.sync.set({ searchBoxes });
+		clearTimeout(saveTimeout);
+		saveTimeout = setTimeout(() => {
+			const searchBoxes = Array.from(
+				document.querySelectorAll(".search-box"),
+			).map((box) => ({
+				engine: searchEngines[box.dataset.engine],
+				position: {
+					x: Number.parseInt(box.style.left),
+					y: Number.parseInt(box.style.top),
+				},
+			}));
+			browser.storage.sync.set({ searchBoxes });
+		}, 1000);
 	}
 
 	addButton.addEventListener("click", () => {
@@ -243,10 +246,10 @@ Delete</div>
 					`data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔍</text></svg>`,
 			};
 
-			chrome.storage.sync.get(["customEngines"], (result) => {
+			browser.storage.sync.get(["customEngines"], (result) => {
 				const customEngines = result.customEngines || {};
 				customEngines[name.toLowerCase()] = engine;
-				chrome.storage.sync.set({ customEngines });
+				browser.storage.sync.set({ customEngines });
 
 				searchEngines[name.toLowerCase()] = engine;
 
