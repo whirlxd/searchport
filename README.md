@@ -25,7 +25,7 @@ Search Port is a modern, customizable homepage with quick search options. It all
     - Enable "Developer mode" in the top right corner
     - Click "Load unpacked" and select the project directory
 4. Load the extension in Firefox:
-    - Open Firefox and go to `about:debugging
+    - Open Firefox and go to `about:debugging`
     - Click "Load temporary addon" and select the manifest.json file in the project directory
 
 
